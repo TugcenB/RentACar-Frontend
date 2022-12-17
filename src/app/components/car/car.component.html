@@ -5,7 +5,12 @@
     <th>Description</th>
     <th>Daily Price</th>
   </thead>
-  <tr *ngFor="let car of carDetails">
+  <tr
+    (click)="setCurrentCar(car)"
+    routerLink="/cars/cardetails/{{ car.id }}"
+    *ngFor="let car of carDetails"
+    class="getCurrentCarClass(car)"
+  >
     <td>{{ car.brandName }}</td>
     <td>{{ car.colorName }}</td>
     <td>{{ car.description }}</td>
