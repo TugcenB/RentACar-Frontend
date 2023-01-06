@@ -1,3 +1,16 @@
+<div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Ürün arama</label>
+  <input
+    type="text"
+    [(ngModel)]="filterText"
+    class="form-control"
+    id="filterText"
+    placeholder="Arama ifadesi giriniz"
+  />
+</div>
+<div *ngIf="filterText.length > 2" class="alert alert-success">
+  {{ filterText }} aradınız.
+</div>
 <table class="table">
   <thead>
     <th>Brand Name</th>
@@ -8,7 +21,7 @@
   <tr
     (click)="setCurrentCar(car)"
     routerLink="/cars/cardetails/{{ car.id }}"
-    *ngFor="let car of carDetails"
+    *ngFor="let car of carDetails | filterPipe : filterText"
     class="getCurrentCarClass(car)"
   >
     <td>{{ car.brandName }}</td>

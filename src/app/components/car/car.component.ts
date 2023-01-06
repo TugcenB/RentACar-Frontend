@@ -14,6 +14,7 @@ export class CarComponent implements OnInit {
   cars: Car[] = [];
   carDetails: CarDetailDto[] = [];
   currentCarDetails: CarDetailDto;
+  filterText: string = '';
 
   constructor(
     private carService: CarService,
